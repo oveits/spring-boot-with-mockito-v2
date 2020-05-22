@@ -8,8 +8,13 @@ import org.springframework.boot.web.server.LocalServerPort;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * IntegratedHttpRequestWithServerTest: fully integrated test running the HTTP server.
+ *
+ * It is sending a HTTP request and is validating the HTTP response.
+ */
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class HttpRequestTest {
+public class IntegratedHttpRequestWithServerTest {
 
     @LocalServerPort
     private int port;

@@ -10,12 +10,13 @@
 	</parent>
 	<groupId>com.vocon_it</groupId>
 	<artifactId>spring_boot_with_mockito</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>spring-boot-with-mockito</name>
 	<description>Demo project for Spring Boot with Mockito</description>
 
 	<properties>
 		<java.version>11</java.version>
+		<assertj.version>3.6.1</assertj.version>
 	</properties>
 
 	<dependencies>

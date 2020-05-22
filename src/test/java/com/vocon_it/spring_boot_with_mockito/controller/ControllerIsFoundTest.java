@@ -6,11 +6,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * ControllerIsFoundTest: Tests that the (Home) controller is found and valid.
+ */
 @SpringBootTest
-public class SmokeTest {
+public class ControllerIsFoundTest {
 
     @Autowired
-    private SmokeTest controller;
+    private HomeController controller;
 
     /**
      *

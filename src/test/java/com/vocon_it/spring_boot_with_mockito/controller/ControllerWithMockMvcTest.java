@@ -12,9 +12,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+/**
+ *  ControllerWithMockMvcTest: does not start the server, but directly attaches to the controller via MockMVC.
+ *
+ *  The test calls the GreetingService, and in this sense is an integrated test.
+ */
 @SpringBootTest
 @AutoConfigureMockMvc
-public class MockMvcTest {
+public class ControllerWithMockMvcTest {
 
     @Autowired
     private MockMvc mockMvc;
