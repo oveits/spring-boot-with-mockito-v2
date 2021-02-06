@@ -6,14 +6,15 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.util.Assert;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 @SpringBootTest
 public class GreetingServiceTest {
 
-    static final String EXPECTED_RESPONSE = "Hello, GreetingService\n";
-    static final String EXPECTED_SUBSTRING = "Hello, GreetingService";
+    static final String EXPECTED_RESPONSE = "Hello, GreetingService";
+    static final String EXPECTED_SUBSTRING = "Hello, Greet";
     static final String WRONG_SUBSTRING = "BLA BLUB";
 
     @Autowired
@@ -26,9 +27,12 @@ public class GreetingServiceTest {
         String responseString = greetingService.greet();
 
         // Spring Asserts:
-        Assert.isTrue(responseString.equals(EXPECTED_RESPONSE), responseString + " should be equal the EXPECTED_RESPONSE = \"" + EXPECTED_RESPONSE + "\"");
-        Assert.isTrue(responseString.contains(EXPECTED_SUBSTRING), responseString + " should match EXPECTED_SUBSTRING = \"" + EXPECTED_SUBSTRING + "\"");
-        Assert.isTrue(!responseString.contains(WRONG_SUBSTRING), responseString + " should not match WRONG_SUBSTRING = \"" + WRONG_SUBSTRING + "\"");
+        Assert.isTrue(responseString.equals(EXPECTED_RESPONSE),
+                responseString + " should be equal the EXPECTED_RESPONSE = \"" + EXPECTED_RESPONSE + "\"");
+        Assert.isTrue(responseString.contains(EXPECTED_SUBSTRING),
+                responseString + " should match EXPECTED_SUBSTRING = \"" + EXPECTED_SUBSTRING + "\"");
+        Assert.isTrue(!responseString.contains(WRONG_SUBSTRING),
+                responseString + " should not match WRONG_SUBSTRING = \"" + WRONG_SUBSTRING + "\"");
 
         // Same with JUnit Jupiter:
         assertEquals(EXPECTED_RESPONSE, responseString);
@@ -37,6 +41,9 @@ public class GreetingServiceTest {
 
         // Beware: the following parenthesis are wrong, leading to false negatives:
         // assertThat(responseString.contains(EXPECTED_SUBSTRING));  // <--- wrong!
+
+        // assertThat by Hamcrest:
+        org.hamcrest.MatcherAssert.assertThat(responseString, is(EXPECTED_RESPONSE));
 
     }
 }
