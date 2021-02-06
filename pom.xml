@@ -16,7 +16,6 @@
 
 	<properties>
 		<java.version>11</java.version>
-		<assertj.version>3.6.1</assertj.version>
 	</properties>
 
 	<dependencies>
