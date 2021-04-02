@@ -18,6 +18,7 @@
 		<java.version>11</java.version>
 	</properties>
 
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -53,7 +54,9 @@
 		</dependency>
 	</dependencies>
 
+	<packaging>jar</packaging>
 	<build>
+		<finalName>app</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
