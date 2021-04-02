@@ -6,7 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.util.Assert;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
@@ -36,6 +36,11 @@ public class GreetingServiceTest {
 
         // Same with JUnit Jupiter:
         assertEquals(EXPECTED_RESPONSE, responseString);
+        assertEquals(true, responseString.contains(EXPECTED_SUBSTRING));
+        assertEquals(false, responseString.contains(WRONG_SUBSTRING));
+
+        // Same with AssertJ (org.assertj.core.api.Assertions.assertThat):
+        assertThat(responseString).isEqualTo(EXPECTED_RESPONSE);
         assertThat(responseString).contains(EXPECTED_SUBSTRING);
         assertThat(responseString).doesNotContain(WRONG_SUBSTRING);
 
@@ -44,6 +49,7 @@ public class GreetingServiceTest {
 
         // assertThat by Hamcrest:
         org.hamcrest.MatcherAssert.assertThat(responseString, is(EXPECTED_RESPONSE));
-
+        org.hamcrest.MatcherAssert.assertThat(responseString, containsString(EXPECTED_SUBSTRING));
+        org.hamcrest.MatcherAssert.assertThat(responseString, not(containsString(WRONG_SUBSTRING)));
     }
 }
